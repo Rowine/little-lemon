@@ -1,11 +1,11 @@
-import Logo from '../assets/Logo.svg'
+import Image from '../assets/restauranfood.jpg'
 
 const Footer = () => {
   return (
     <footer>
-      <img src={Logo} alt='logo'></img>
+      <img src={Image} alt='logo'></img>
       <ul>
-        <li>Navigation</li>
+        <h2>Navigation</h2>
         <li>
           <a href='/'>Home</a>
         </li>
@@ -27,7 +27,7 @@ const Footer = () => {
       </ul>
 
       <ul>
-        <li>Contact</li>
+        <h2>Contact</h2>
         <li>
           <a href='/'>Address</a>
         </li>
@@ -40,7 +40,7 @@ const Footer = () => {
       </ul>
 
       <ul>
-        <li>Social Media Links</li>
+        <h2>Social Media Links</h2>
         <li>
           <a href='/'>Address</a>
         </li>
