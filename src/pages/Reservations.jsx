@@ -1,11 +1,15 @@
 import Header from '../components/Header'
-import ReserveForm from '../components/ReserveForm'
+import BookingForm from '../components/BookingForm'
 
-const Reservations = () => {
+const Reservations = ({ availableTimes, dispatch, submitForm }) => {
   return (
     <>
       <Header step1 />
-      <ReserveForm />
+      <BookingForm
+        availableTimes={availableTimes}
+        dispatch={dispatch}
+        submitForm={submitForm}
+      />
     </>
   )
 }

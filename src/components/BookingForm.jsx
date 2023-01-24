@@ -1,38 +1,25 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import './styles/ReserveForm.css'
+import { useState, useEffect } from 'react'
+import './styles/BookingForm.css'
 
-const ReserveForm = () => {
-  const [date, setDate] = useState('')
-  const [time, setTime] = useState('')
-  const [diners, setDiners] = useState('')
+const occasions = ['None', 'Birthday', 'Engagement', 'Anniversary']
+
+const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
+  const [date, setDate] = useState(new Date())
+  const [time, setTime] = useState('17:00')
+  const [diners, setDiners] = useState('1')
   const [location, setLocation] = useState('')
+  const [occasion, setOccasion] = useState('None')
   const [requests, setRequests] = useState('')
-
-  const navigate = useNavigate()
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    navigate('/confirmation')
+    submitForm({ date, time, diners, location, occasion, requests })
   }
 
-  const times = [
-    '9:00 AM',
-    '10:00 AM',
-    '11:00 AM',
-    '12:00 PM',
-    '1:00 PM',
-    '2:00 PM',
-    '3:00 PM',
-    '4:00 PM',
-    '5:00 PM',
-    '6:00 PM',
-    '7:00 PM',
-    '8:00 PM',
-    '9:00 PM',
-  ]
+  useEffect(() => {
+    dispatch({ payload: date })
+  }, [date, dispatch])
 
-  const occasion = ['None', 'Birthday', 'Engagement', 'Anniversary']
   return (
     <div className='reserve-container'>
       <h1>Reserve a Table</h1>
@@ -41,8 +28,9 @@ const ReserveForm = () => {
           Date:
           <input
             type='date'
-            value={date}
-            onChange={(event) => setDate(event.target.value)}
+            value={date.toISOString().substring(0, 10)}
+            required
+            onChange={(event) => setDate(new Date(event.target.value))}
           />
         </label>
         <br />
@@ -52,7 +40,7 @@ const ReserveForm = () => {
             value={time}
             onChange={(event) => setTime(event.target.value)}
           >
-            {times.map((timeOption) => (
+            {availableTimes.map((timeOption) => (
               <option value={timeOption} key={timeOption}>
                 {timeOption}
               </option>
@@ -75,19 +63,28 @@ const ReserveForm = () => {
           <div>
             <input
               type='radio'
+              required
+              id='outdoor'
+              name='location'
               value='outdoor'
               checked={location === 'outdoor'}
               onChange={(event) => setLocation(event.target.value)}
             />
-            Outdoor
+            <label htmlFor='outdoor' id='label-outdoor'>
+              Outdoor
+            </label>
             <br />
             <input
               type='radio'
+              id='indoor'
               value='indoor'
+              name='location'
               checked={location === 'indoor'}
               onChange={(event) => setLocation(event.target.value)}
             />
-            Indoor
+            <label htmlFor='indoor' id='label-indoor'>
+              Indoor
+            </label>
           </div>
         </label>
         <br />
@@ -95,9 +92,9 @@ const ReserveForm = () => {
           Occasion:
           <select
             value={occasion}
-            onChange={(event) => setTime(event.target.value)}
+            onChange={(event) => setOccasion(event.target.value)}
           >
-            {occasion.map((occasionOption) => (
+            {occasions.map((occasionOption) => (
               <option value={occasionOption} key={occasionOption}>
                 {occasionOption}
               </option>
@@ -121,4 +118,4 @@ const ReserveForm = () => {
     </div>
   )
 }
-export default ReserveForm
+export default BookingForm

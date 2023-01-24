@@ -1,3 +1,4 @@
+import { useReducer } from 'react'
 import './App.css'
 
 import Nav from './components/Nav'
@@ -6,15 +7,55 @@ import Home from './pages/Home'
 import Reservations from './pages/Reservations'
 import Confirmation from './pages/Confirmation'
 
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+import { fetchAPI, submitAPI } from './fetchData'
 
-function App() {
+export const updateTimes = (state, action) => {
+  state = fetchAPI(action.payload)
+  return state
+}
+
+export const initializeTimes = () => {
+  const currentDate = new Date()
+  const data = fetchAPI(currentDate)
+
+  return data
+}
+
+const App = () => {
+  const [state, dispatch] = useReducer(updateTimes, initializeTimes())
+  const navigate = useNavigate()
+
+  const submitForm = (formData) => {
+    const response = submitAPI(formData)
+    if (response) {
+      localStorage.setItem('Date', formData.date)
+      localStorage.setItem('Time', formData.time)
+      localStorage.setItem('Diners', formData.diners)
+      localStorage.setItem('Location', formData.location)
+      localStorage.setItem('Occasion', formData.occasion)
+      localStorage.setItem('Requests', formData.requests)
+      navigate('/confirmation')
+    } else {
+      console.log('Not working')
+    }
+  }
+
   return (
     <>
       <Nav />
       <Routes>
         <Route path='/' exact element={<Home />} />
-        <Route path='/reservations' element={<Reservations />} />
+        <Route
+          path='/reservations'
+          element={
+            <Reservations
+              availableTimes={state}
+              dispatch={dispatch}
+              submitForm={submitForm}
+            />
+          }
+        />
         <Route path='/confirmation' element={<Confirmation />} />
       </Routes>
       <Footer />

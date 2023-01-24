@@ -1,8 +1,6 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { initializeTimes } from './App'
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test('initializeTimes returns an array', () => {
+  const result = initializeTimes()
+  expect(Array.isArray(result)).toBe(true)
+})
