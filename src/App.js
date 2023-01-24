@@ -1,15 +1,22 @@
 import './App.css'
+
 import Nav from './components/Nav'
-import Header from './components/Header'
-import Main from './components/Main'
 import Footer from './components/Footer'
+import Home from './pages/Home'
+import Reservations from './pages/Reservations'
+import Confirmation from './pages/Confirmation'
+
+import { Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
     <>
       <Nav />
-      <Header />
-      <Main />
+      <Routes>
+        <Route path='/' exact element={<Home />} />
+        <Route path='/reservations' element={<Reservations />} />
+        <Route path='/confirmation' element={<Confirmation />} />
+      </Routes>
       <Footer />
     </>
   )

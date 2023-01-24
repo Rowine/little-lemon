@@ -1,0 +1,56 @@
+label {
+  font-family: 'Markazi Text', serif;
+  font-size: 2em;
+  font-weight: normal;
+}
+
+input,
+select,
+textarea {
+  font-family: 'Karla', sans-serif;
+  font-size: 12pt;
+  padding: 12px 20px;
+  margin: 8px 10px;
+  box-sizing: border-box;
+  border: 2px solid gray;
+  border-radius: 4px;
+}
+
+textarea {
+  width: 45vw;
+  height: 15vw;
+}
+
+.reserve-container {
+  width: 45vw;
+  margin: 0 auto;
+}
+
+.form-container {
+  padding-top: 0;
+  padding-bottom: 5rem;
+  padding-left: 5rem;
+}
+
+.reserve-button {
+  font-family: 'Karla', sans-serif;
+  padding: 15px 30px;
+  font-size: 16pt;
+  font-weight: bolder;
+  background-color: #f4ce14;
+  color: #333333;
+  border: none;
+}
+
+.reserve-button:hover {
+  cursor: pointer;
+  background-color: #333333;
+  color: #f4ce14;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .form-container {
+    padding-left: 0;
+  }
+}

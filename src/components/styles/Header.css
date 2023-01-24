@@ -1,0 +1,15 @@
+header {
+  background-color: #495e57;
+  padding: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+@media (max-width: 425px) {
+  header {
+    gap: 1rem;
+  }
+}

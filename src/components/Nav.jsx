@@ -1,6 +1,7 @@
 import Logo from '../assets/Logo.svg'
 import { ReactComponent as Hamburger } from '../assets/hamburger.svg'
 import { ReactComponent as Exit } from '../assets/x-symbol.svg'
+import { Link } from 'react-router-dom'
 
 const Nav = () => {
   const handleHamburger = () => {
@@ -19,22 +20,22 @@ const Nav = () => {
       <ul id='nav-list'>
         <Exit onClick={handleExit} />
         <li>
-          <a href='/'>Home</a>
+          <Link to='/'>Home</Link>
         </li>
         <li>
-          <a href='/'>About</a>
+          <Link to='/about'>About</Link>
         </li>
         <li>
-          <a href='/'>Menu</a>
+          <Link to='/menu'>Menu</Link>
         </li>
         <li>
-          <a href='/'>Reservations</a>
+          <Link to='/reservations'>Reservations</Link>
         </li>
         <li>
-          <a href='/'>Order Online</a>
+          <Link to='/order'>Order Online</Link>
         </li>
         <li>
-          <a href='/'>Login</a>
+          <Link to='/login'>Login</Link>
         </li>
       </ul>
       <Hamburger onClick={handleHamburger} />

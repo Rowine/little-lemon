@@ -1,0 +1,82 @@
+.special-card {
+  display: grid;
+  grid-template-columns: 31% 31% 31%;
+  gap: 35px;
+  margin-top: 20px;
+}
+.special-card-container {
+  background-color: #edefee;
+  border-radius: 20px 20px 20px 20px;
+}
+
+.special-card-text {
+  padding: 30px 20px 5px;
+}
+
+.special-card-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.special-card-title h3 {
+  font-family: 'Karla', sans-serif;
+  font-size: 16pt;
+  font-weight: bold;
+  margin: 0;
+}
+
+.price-tag {
+  color: #ee9972;
+}
+
+.special-card-text p {
+  font-family: 'Karla', sans-serif;
+  font-size: 12pt;
+  line-height: 1.5;
+}
+
+.special-card-text h4 {
+  font-family: 'Karla', sans-serif;
+  font-weight: bold;
+  font-size: 12pt;
+  display: flex;
+  align-items: center;
+}
+
+.image-container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  border-radius: 20px 20px 0 0;
+}
+
+.image-container img {
+  width: 100%;
+}
+
+@media screen and (max-width: 1040px) {
+  .special-card {
+    grid-template-columns: 47% 47%;
+  }
+}
+
+@media screen and (max-width: 659px) {
+  .special-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .special-card-text p,
+  h3 {
+    font-size: smaller;
+  }
+
+  .special-card-text h4 {
+    font-size: smaller;
+  }
+
+  .image-container {
+    height: 200px;
+  }
+}

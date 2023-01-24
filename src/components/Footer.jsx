@@ -1,9 +1,9 @@
-import Image from '../assets/restauranfood.jpg'
+import { ReactComponent as Logo } from '../assets/Logo.svg'
 
 const Footer = () => {
   return (
     <footer>
-      <img src={Image} alt='logo'></img>
+      <Logo />
       <ul>
         <h2>Navigation</h2>
         <li>
