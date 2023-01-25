@@ -49,11 +49,7 @@ const App = () => {
         <Route
           path='/reservations'
           element={
-            <Reservations
-              availableTimes={state}
-              dispatch={dispatch}
-              submitForm={submitForm}
-            />
+            <Reservations values={[state, dispatch]} submitForm={submitForm} />
           }
         />
         <Route path='/confirmation' element={<Confirmation />} />

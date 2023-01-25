@@ -3,7 +3,7 @@ import './styles/BookingForm.css'
 
 const occasions = ['None', 'Birthday', 'Engagement', 'Anniversary']
 
-const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
+const BookingForm = ({ values, submitForm }) => {
   const [date, setDate] = useState(new Date())
   const [time, setTime] = useState('17:00')
   const [diners, setDiners] = useState('1')
@@ -16,6 +16,8 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
     submitForm({ date, time, diners, location, occasion, requests })
   }
 
+  const [availableTimes, dispatch] = values
+
   useEffect(() => {
     dispatch({ payload: date })
   }, [date, dispatch])
@@ -24,23 +26,26 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
     <div className='reserve-container'>
       <h1>Reserve a Table</h1>
       <form onSubmit={handleSubmit} className='form-container'>
-        <label>
+        <label htmlFor='date'>
           Date:
           <input
             type='date'
             value={date.toISOString().substring(0, 10)}
             required
             onChange={(event) => setDate(new Date(event.target.value))}
+            aria-label='date-input'
           />
         </label>
         <br />
-        <label>
+        <label htmlFor='time'>
           Time:
           <select
             value={time}
+            required
             onChange={(event) => setTime(event.target.value)}
+            aria-label='time-input'
           >
-            {availableTimes.map((timeOption) => (
+            {availableTimes?.map((timeOption) => (
               <option value={timeOption} key={timeOption}>
                 {timeOption}
               </option>
@@ -48,17 +53,18 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
           </select>
         </label>
         <br />
-        <label>
+        <label htmlFor='numberOfDiners'>
           Number of Diners:
           <input
             type='number'
-            min={0}
+            min={1}
             value={diners}
             onChange={(event) => setDiners(event.target.value)}
+            aria-label='diner-input'
           />
         </label>
         <br />
-        <label>
+        <label htmlFor='location'>
           Location:
           <div>
             <input
@@ -69,6 +75,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
               value='outdoor'
               checked={location === 'outdoor'}
               onChange={(event) => setLocation(event.target.value)}
+              aria-label='outdoor-input'
             />
             <label htmlFor='outdoor' id='label-outdoor'>
               Outdoor
@@ -81,6 +88,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
               name='location'
               checked={location === 'indoor'}
               onChange={(event) => setLocation(event.target.value)}
+              aria-label='indoor-input'
             />
             <label htmlFor='indoor' id='label-indoor'>
               Indoor
@@ -88,11 +96,12 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
           </div>
         </label>
         <br />
-        <label>
+        <label htmlFor='occasion'>
           Occasion:
           <select
             value={occasion}
             onChange={(event) => setOccasion(event.target.value)}
+            aria-label='occasion-input'
           >
             {occasions.map((occasionOption) => (
               <option value={occasionOption} key={occasionOption}>
@@ -102,7 +111,7 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
           </select>
         </label>
         <br />
-        <label>
+        <label htmlFor='comments'>
           Comments:
           <br />
           <textarea
@@ -111,7 +120,12 @@ const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
           />
         </label>
         <br />
-        <button type='submit' className='reserve-button'>
+        <button
+          type='submit'
+          className='reserve-button'
+          disabled={location === ''}
+          aria-label='reserve-button'
+        >
           Reserve
         </button>
       </form>

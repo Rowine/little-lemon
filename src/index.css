@@ -47,6 +47,13 @@ nav > ul > li > a {
   text-decoration: none;
   font-family: 'Karla', sans-serif;
   font-size: 20px;
+  padding: 10px;
+}
+
+nav .active {
+  background-color: #495e57;
+  color: #edefee;
+  font-weight: bold;
 }
 
 header {
@@ -133,6 +140,12 @@ footer > ul > li > a {
 
   nav > ul > li > a {
     color: #edefee;
+  }
+
+  nav .active {
+    background-color: #edefee;
+    color: #495e57;
+    font-weight: bold;
   }
 }
 
