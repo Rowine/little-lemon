@@ -67,3 +67,13 @@ textarea {
     padding-left: 0;
   }
 }
+
+@media (max-width: 426px) {
+  .reserve-container {
+    width: 100%;
+  }
+
+  .form-container {
+    padding-left: 2rem;
+  }
+}

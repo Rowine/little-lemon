@@ -6,6 +6,8 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import Reservations from './pages/Reservations'
 import Confirmation from './pages/Confirmation'
+import Pay from './pages/Pay'
+import Success from './pages/Success'
 
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import { fetchAPI, submitAPI } from './fetchData'
@@ -53,6 +55,8 @@ const App = () => {
           }
         />
         <Route path='/confirmation' element={<Confirmation />} />
+        <Route path='/pay' element={<Pay />} />
+        <Route path='/success' element={<Success />} />
       </Routes>
       <Footer />
     </>

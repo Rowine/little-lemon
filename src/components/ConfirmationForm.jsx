@@ -20,10 +20,12 @@ const ConfirmationForm = () => {
       setDiners(localStorage.getItem('Diners'))
       setLocation(localStorage.getItem('Location'))
       setOccasion(localStorage.getItem('Occasion'))
-      setRequests(localStorage.getItem('Request'))
+      setRequests(localStorage.getItem('Requests'))
     } else {
       navigate('/reservations')
     }
+
+    console.log(requests)
   }, [date, time, diners, location, occasion, requests, navigate])
 
   return (
@@ -57,10 +59,13 @@ const ConfirmationForm = () => {
             <h3>Occasion:</h3>
             <p>{occasion}</p>
           </div>
-          <div className='text-container'>
-            <h3>Comments:</h3>
-            <p>{requests}</p>
-          </div>
+          {requests && (
+            <div className='text-container'>
+              <h3>Comments:</h3>
+              <p>{requests}</p>
+            </div>
+          )}
+
           <button className='confirm-button' aria-label='confirm-button'>
             <Link to={'/pay'}>Proceed to Payment</Link>
           </button>

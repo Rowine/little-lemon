@@ -1,0 +1,51 @@
+.pay-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0;
+  padding-bottom: 5rem;
+  padding-left: 5rem;
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.input-container label {
+  width: 100%;
+}
+
+.errors {
+  color: red;
+  font-size: 0.6em;
+}
+
+.field {
+  width: 50%;
+}
+
+.pay-button {
+  font-family: 'Karla', sans-serif;
+  padding: 15px 30px;
+  font-size: 16pt;
+  font-weight: bolder;
+  background-color: #f4ce14;
+  color: #333333;
+  border: none;
+}
+
+.pay-button:hover {
+  cursor: pointer;
+  background-color: #333333;
+  color: #f4ce14;
+  transition: 0.3s;
+}
+
+@media (max-width: 769px) {
+  .pay-form-container {
+    padding-left: 0;
+  }
+}
