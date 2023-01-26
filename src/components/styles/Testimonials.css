@@ -1,0 +1,37 @@
+.testimonial-container {
+  background-color: #495e57;
+}
+
+.testimonials-section-container {
+  padding: 5rem;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.testimonials-section-title {
+  font-family: 'Markazi Text';
+  font-size: 3em;
+  text-align: center;
+  color: #edefee;
+  margin-bottom: 20px;
+}
+
+.testimonial-cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+@media (max-width: 426px) {
+  .testimonials-section-container {
+    padding: 2rem 0;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .testimonial-cards-container {
+    gap: 0.5rem;
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+}

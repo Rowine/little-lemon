@@ -1,0 +1,71 @@
+.about-section-container {
+  width: 50%;
+  height: 50vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  gap: 2rem;
+}
+
+.about-text {
+  width: fit-content;
+}
+
+.about-heading > h1 {
+  padding: 0px;
+  margin: 0px;
+}
+
+.about-heading > h2 {
+  font-family: 'Markazi Text', serif;
+  font-weight: normal;
+  font-size: 2em;
+  padding: 0px;
+  margin: 0px;
+}
+
+.about-text > p {
+  font-family: 'Karla', sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 2rem;
+}
+
+.about-image-container {
+  width: fit-content;
+}
+
+.about-image-container > img {
+  width: 50%;
+  position: relative;
+  border-radius: 5%;
+}
+
+.picture-1 {
+  position: absolute;
+  bottom: -50px;
+}
+
+.picture-2 {
+  position: absolute;
+  right: 50px;
+}
+
+@media (max-width: 768px) {
+  .about-section-container {
+    flex-direction: column;
+    height: max-content;
+    gap: 1rem;
+  }
+
+  .about-image-container {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .about-section-container {
+    width: 100%;
+  }
+}
