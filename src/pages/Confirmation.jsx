@@ -1,4 +1,6 @@
+import ConfirmationForm from '../components/ConfirmationForm'
+
 const Confirmation = () => {
-  return <div>Confirmation</div>
+  return <ConfirmationForm />
 }
 export default Confirmation
